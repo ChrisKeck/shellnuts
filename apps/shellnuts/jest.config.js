@@ -1,3 +1,5 @@
+// Mit einer eigenständigen jest-config ist es nun auch möglich die tests zu debuggen (in intellij)
+
 module.exports={
   setupFilesAfterEnv:["../../node_modules/@stencil/core/testing/jest-setuptestframework.js"],
   testEnvironment:"../../node_modules/@stencil/core/testing/jest-environment.js",
