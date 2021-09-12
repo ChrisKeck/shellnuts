@@ -71,16 +71,16 @@
             "outputPath": "dist/apps/shellnuts"
           }
         },
-        "e2e": {
-          "executor": "@nxext/stencil:e2e",
-          "outputs": ["{options.outputPath}"],
+        "e2e":{
+          "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "projectType": "application",
-            "tsConfig": "apps/shellnuts/tsconfig.app.json",
-            "configPath": "apps/shellnuts/stencil.config.ts",
-            "outputPath": "dist/apps/shellnuts"
+            "commands": [
+              "npx playwright test -c apps/shellnuts/playwright.config.ts"
+            ],
+            "parallel": true
           }
         },
+
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
