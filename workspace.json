@@ -12,12 +12,12 @@
       },
       "targets": {
         "test": {
-          "executor": "@nxext/stencil:test",
+          "executor": "@nrwl/jest:jest",
           "outputs": ["{options.outputPath}"],
           "options": {
             "projectType": "library",
             "tsConfig": "libs/rahmen/tsconfig.lib.json",
-            "configPath": "libs/rahmen/stencil.config.ts",
+            "jestConfig": "libs/rahmen/jest.config.js",
             "outputPath": "dist/libs/rahmen"
           }
         }
@@ -62,12 +62,12 @@
           }
         },
         "test": {
-          "executor": "@nxext/stencil:test",
+          "executor": "@nrwl/jest:jest",
           "outputs": ["{options.outputPath}"],
           "options": {
             "projectType": "application",
             "tsConfig": "apps/shellnuts/tsconfig.app.json",
-            "configPath": "apps/shellnuts/stencil.config.ts",
+            "jestConfig": "apps/shellnuts/jest.config.js",
             "outputPath": "dist/apps/shellnuts"
           }
         },
