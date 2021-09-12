@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@shellnuts/rahmen": ["libs/rahmen/src/index.ts"]
+      "@shellnuts/rahmen": ["dist/libs/rahmen"],
+      "@shellnuts/rahmen/loader": ["dist/libs/rahmen/loader"]
     }
   },
   "exclude": ["node_modules", "tmp"]

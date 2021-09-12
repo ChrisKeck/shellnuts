@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shellnuts-footer renders with values 1`] = `
+<shellnuts-footer first="Stencil" last="'Don't call me a framework' JS">
+  <mock:shadow-root>
+    <div>
+      Hello, World! I'm Stencil undefined 'Don't call me a framework' JS
+    </div>
+  </mock:shadow-root>
+</shellnuts-footer>
+`;

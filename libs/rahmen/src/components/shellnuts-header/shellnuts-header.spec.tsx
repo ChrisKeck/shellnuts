@@ -23,14 +23,6 @@ describe('shellnuts-header', () => {
       components: [ShellnutsHeader],
       html: `<shellnuts-header first="Stencil" last="'Don't call me a framework' JS"></shellnuts-header>`,
     });
-    expect(root).toEqualHtml(`
-      <shellnuts-header first="Stencil" last="'Don't call me a framework' JS">
-        <mock:shadow-root>
-          <div>
-            Hello, World! I'm Stencil 'Don't call me a framework' JS
-          </div>
-        </mock:shadow-root>
-      </shellnuts-header>
-    `);
+    expect(root).toMatchSnapshot()
   });
 });

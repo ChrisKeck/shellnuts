@@ -20,6 +20,45 @@
             "jestConfig": "libs/rahmen/jest.config.js",
             "outputPath": "dist/libs/rahmen"
           }
+        },
+        "e2e": {
+          "executor": "@nrwl/workspace:run-commands",
+          "outputs": ["{options.outputPath}/www","{options.outputPath}/reports"],
+          "options": {
+            "commands": [
+              "npx playwright test -c libs/rahmen/playwright.config.ts"
+            ],
+            "parallel": false,
+            "outputPath": "dist/libs/rahmen"
+          }
+        },
+        "build": {
+          "executor": "@nxext/stencil:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "projectType": "library",
+            "tsConfig": "libs/rahmen/tsconfig.lib.json",
+            "configPath": "libs/rahmen/stencil.config.ts",
+            "outputPath": "dist/libs/rahmen"
+          },
+          "configurations": {
+            "production": {
+              "dev": false,
+              "prod": true
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nxext/stencil:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "projectType": "library",
+            "tsConfig": "libs/rahmen/tsconfig.lib.json",
+            "configPath": "libs/rahmen/stencil.config.ts",
+            "outputPath": "dist/libs/rahmen",
+            "serve": true,
+            "watch": true
+          }
         }
       }
     },
@@ -71,16 +110,17 @@
             "outputPath": "dist/apps/shellnuts"
           }
         },
-        "e2e":{
-          "builder": "@nrwl/workspace:run-commands",
+        "e2e": {
+          "executor": "@nrwl/workspace:run-commands",
+          "outputs": ["{options.outputPath}/www", "apps/shellnuts/reports"],
           "options": {
             "commands": [
               "npx playwright test -c apps/shellnuts/playwright.config.ts"
             ],
-            "parallel": true
+            "outputPath": "dist/apps/shellnuts",
+            "parallel": false
           }
         },
-
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],

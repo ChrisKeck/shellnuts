@@ -1,32 +1,10 @@
-import { newE2EPage } from '@stencil/core/testing';
+import { test,expect } from '@playwright/test';
 
-describe('shellnuts-header', () => {
-  it('renders', async () => {
-    const page = await newE2EPage();
-
-    await page.setContent('<shellnuts-header></shellnuts-header>');
-    const element = await page.find('shellnuts-header');
-    expect(element).toHaveClass('hydrated');
-  });
-
-  it('renders changes to the name data', async () => {
-    const page = await newE2EPage();
-
-    await page.setContent('<shellnuts-header></shellnuts-header>');
-    const component = await page.find('shellnuts-header');
-    const element = await page.find('shellnuts-header >>> div');
-    expect(element.textContent).toEqual(`Hello, World! I'm `);
-
-    component.setProperty('first', 'James');
-    await page.waitForChanges();
-    expect(element.textContent).toEqual(`Hello, World! I'm James`);
-
-    component.setProperty('last', 'Quincy');
-    await page.waitForChanges();
-    expect(element.textContent).toEqual(`Hello, World! I'm James Quincy`);
-
-    component.setProperty('middle', 'Earl');
-    await page.waitForChanges();
-    expect(element.textContent).toEqual(`Hello, World! I'm James Earl Quincy`);
+test.describe('shellnuts-header', async() => {
+  test.beforeEach(async({page})=>{
+    await page.goto("http://localhost:3334")
+  })
+  test('renders', async ({page}) => {
+    await expect(page).toHaveURL("http://localhost:3334/")
   });
 });
